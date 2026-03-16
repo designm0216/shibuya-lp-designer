@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>渋谷LPデザイン</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Jost:wght@400;500;700&family=Allura&family=Noto+Sans+JP:wght@300;400;700&family=Josefin+Sans:wght@300;400&family=Raleway:wght@300;400;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+<!-- ========== ローディング ========== -->
+<div class="loading" id="jsLoading">
+  <div class="loading__logo">
+    <img src="./img/logo_sibuya.png" alt="渋谷LPデザイン">
+  </div>
+</div>
+<!-- ========== /ローディング ========== -->
+
+  <header class="site-header">
+    <div class="site-header__inner">
+
+      <!-- ナビ左側 -->
+      <ul class="site-header__nav site-header__nav--left">
+        <li><a href="#"><span class="nav-ja">サービス内容</span><span class="nav-en">Services</span></a></li>
+        <li><a href="#"><span class="nav-ja">制作実績</span><span class="nav-en">Works</span></a></li>
+        <li><a href="#"><span class="nav-ja">会社概要</span><span class="nav-en">About</span></a></li>
+      </ul>
+
+      <!-- ロゴ -->
+      <div class="site-header__logo">
+        <a href="#" class="site-header__logo-bg">
+          <img src="./img/logo_sibuya.png" alt="渋谷LPデザイン" class="site-header__logo-img">
+        </a>
+      </div>
+
+      <!-- ナビ右側 -->
+      <ul class="site-header__nav site-header__nav--right">
+        <li><a href="#"><span class="nav-ja">スタッフ紹介</span><span class="nav-en">Staff</span></a></li>
+        <li><a href="#"><span class="nav-ja">ブログ・お知らせ</span><span class="nav-en">Blog</span></a></li>
+      </ul>
+
+      <!-- Contact固定ボタン -->
+      <a href="#" class="contact-fixed">
+        <span class="contact-fixed__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+            <rect x="4" y="10" width="40" height="28" rx="3" stroke="#fff" stroke-width="2.5" />
+            <polyline points="4,10 24,27 44,10" stroke="#fff" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </span>
+        <span class="contact-fixed__text">
+          <span class="contact-fixed__en">Contact</span>
+          <span class="contact-fixed__ja">お問い合わせ</span>
+        </span>
+      </a>
+
+      <!-- ハンバーガーボタン（SPのみ表示） -->
+      <a href="#" class="sp-contact-circle" aria-label="お問い合わせ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+          <rect x="4" y="10" width="40" height="28" rx="3" stroke="#fff" stroke-width="2.5"/>
+          <polyline points="4,10 24,27 44,10" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <button class="site-header__hamburger" aria-label="メニュー">
+        <span class="hamburger-lines">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="hamburger-text">MENU</span>
+      </button>
+
+
+
+    </div>
+  </header>
+
+  <div class="lcl-fv">
+
+    <!-- キャッチコピー -->
+    <div class="lcl-catch">
+      <p class="catch-script">Shibuya Design</p>
+      <div class="catch-slides-wrap">
+      <div class="catch-slide is-active" data-catch="0">
+        <h2 class="catch-main">
+          <span class="pc-only">想いがある人のビジネスを<br><span class="em">ちゃんと届くカタチ</span>に</span>
+          <span class="catch-line">想いがある人の</span>
+          <span class="catch-line">ビジネスを</span>
+          <span class="catch-line"><span class="em">ちゃんと届くカタチ</span>に</span>
+        </h2>
+
+
+        <p class="catch-sub">
+          私たちは、あなたの情熱を、お客様の心に響くブランドへと昇華させる<br class="sp-only">
+          LP制作のプロフェッショナル集団です。
+        </p>
+      </div>
+
+      <div class="catch-slide" data-catch="1">
+        <h2 class="catch-main">
+          <span class="pc-only">人生も仕事も<br>大切にしたい人のための<span class="em">LP制作</span></span>
+          <span class="catch-line">人生も仕事も</span>
+          <span class="catch-line">大切にしたい人のための</span>
+          <span class="catch-line"><span class="em">LP制作</span></span>
+        </h2>
+        <p class="catch-sub">
+          忙しい日々の中でも、<br class="sp-only">
+          無理なく、着実に成果を出す。<br class="sp-only">
+          あなたに寄り添い、成長をサポートします。
+        </p>
+      </div>
+
+      <div class="catch-slide" data-catch="2">
+        <h2 class="catch-main">
+          <span class="pc-only">専門性はある。<br>でも<span class="em">伝わっていない</span>人のために</span>
+          <span class="catch-line">専門性はある。</span>
+          <span class="catch-line">でも<span class="em">伝わっていない</span></span>
+          <span class="catch-line">人のために</span>
+        </h2>
+        <p class="catch-sub">
+          専門性や情熱があるのに、伝わらない。<br class="sp-only">
+          そのもどかしさを、デザインで解決し、<br class="sp-only">
+          選ばれる存在へと導きます。
+
+        </p>
+      </div>
+      </div>
+    </div>
+
+    <!-- センターモードスライダー -->
+    <div class="lcl-slider-area">
+      <div class="lcl-slider" id="centerSlider">
+        <div class="lcl-slider__card lcl-slider__card--side lcl-slider__card--prev" id="cardPrev">
+          <img src="./img/main/img_03.jpeg" alt="">
+        </div>
+        <div class="lcl-slider__card lcl-slider__card--center" id="cardCenter">
+          <img src="./img/main/img_01.jpeg" alt="" class="zoom-active">
+        </div>
+        <div class="lcl-slider__card lcl-slider__card--side lcl-slider__card--next" id="cardNext">
+          <img src="./img/main/img_02.jpeg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- モックアップ -->
+    <div class="lcl-slider__mockup">
+      <img src="./img/mockup_devices.png" alt="PC・スマートフォン モックアップ">
+    </div>
+
+    <!-- アイコンナビゲーション -->
+    <nav class="icon-nav js-observe">
+      <a href="#" class="icon-nav__item">
+        <span class="icon-nav__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+            <rect x="8" y="4" width="28" height="36" rx="3" stroke="#00b4a8" stroke-width="2.5" />
+            <line x1="14" y1="14" x2="30" y2="14" stroke="#00b4a8" stroke-width="2.5" stroke-linecap="round" />
+            <line x1="14" y1="21" x2="30" y2="21" stroke="#00b4a8" stroke-width="2.5" stroke-linecap="round" />
+            <line x1="14" y1="28" x2="22" y2="28" stroke="#00b4a8" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="36" cy="36" r="8" fill="#00b4a8" />
+            <text x="36" y="40" text-anchor="middle" font-size="10" fill="#fff" font-family="sans-serif"
+              font-weight="bold">1</text>
+          </svg>
+        </span>
+        <span class="icon-nav__label">1分でわかるLP</span>
+      </a>
+      <a href="#" class="icon-nav__item">
+        <span class="icon-nav__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+            <rect x="6" y="18" width="36" height="26" rx="2" stroke="#00b4a8" stroke-width="2.5" />
+            <path d="M16 18V10a2 2 0 012-2h12a2 2 0 012 2v8" stroke="#00b4a8" stroke-width="2.5" />
+            <rect x="13" y="28" width="6" height="6" rx="1" stroke="#00b4a8" stroke-width="2" />
+            <rect x="29" y="28" width="6" height="6" rx="1" stroke="#00b4a8" stroke-width="2" />
+            <rect x="21" y="30" width="6" height="14" rx="1" stroke="#00b4a8" stroke-width="2" />
+          </svg>
+        </span>
+        <span class="icon-nav__label">弊社について</span>
+      </a>
+      <a href="#" class="icon-nav__item">
+        <span class="icon-nav__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="14" r="8" stroke="#00b4a8" stroke-width="2.5" />
+            <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#00b4a8" stroke-width="2.5"
+              stroke-linecap="round" />
+          </svg>
+        </span>
+        <span class="icon-nav__label">スタッフについて</span>
+      </a>
+      <a href="#" class="icon-nav__item">
+        <span class="icon-nav__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+            <circle cx="20" cy="14" r="7" stroke="#00b4a8" stroke-width="2.5" />
+            <path d="M6 40c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="#00b4a8" stroke-width="2.5"
+              stroke-linecap="round" />
+            <line x1="36" y1="24" x2="36" y2="36" stroke="#00b4a8" stroke-width="2.5" stroke-linecap="round" />
+            <line x1="30" y1="30" x2="42" y2="30" stroke="#00b4a8" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+        </span>
+        <span class="icon-nav__label">メンバー募集</span>
+      </a>
+      <a href="#" class="icon-nav__item">
+        <span class="icon-nav__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+            <polyline points="6,38 16,24 24,30 34,14 42,20" stroke="#00b4a8" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <line x1="6" y1="38" x2="42" y2="38" stroke="#00b4a8" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="36" cy="36" r="8" fill="#00b4a8" />
+            <text x="36" y="40" text-anchor="middle" font-size="10" fill="#fff" font-family="sans-serif"
+              font-weight="bold">1</text>
+          </svg>
+        </span>
+        <span class="icon-nav__label">1分でわかる<br>広告運用代行</span>
+      </a>
+      <a href="#" class="icon-nav__item">
+        <span class="icon-nav__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+            <path d="M20 6h8v10h10v8H28v10h-8V24H10v-8h10V6z" stroke="#00b4a8" stroke-width="2.5"
+              stroke-linejoin="round" />
+            <circle cx="36" cy="36" r="8" fill="#00b4a8" />
+            <text x="36" y="40" text-anchor="middle" font-size="10" fill="#fff" font-family="sans-serif"
+              font-weight="bold">1</text>
+          </svg>
+        </span>
+        <span class="icon-nav__label">1分でわかる<br>医療系採用支援</span>
+      </a>
+    </nav>
+
+
+    <!-- スクロールダウン -->
+    <div class="scroll_down" id="type01">
+      <a href="#">Scroll</a>
+    </div>
+
+    <!-- SP用スクロールダウン -->
+    <div class="scroll_down scroll_down--sp" id="type01sp">
+      <a href="#">Scroll</a>
+    </div>
+
+
+  </div>
+
+
+
+
+  <!-- ウェーブ: FV → サービス -->
+  <div class="section-wave section-wave--fv-to-service">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+
+  <!-- サービスセクション -->
+  <section class="sec-service">
+    <div class="sec-heading js-observe">
+      <p class="sec-heading__en">Service</p>
+      <h2 class="sec-heading__ja">サービス紹介</h2>
+    </div>
+    <div class="sec-service__inner">
+
+      <a href="#" class="service-card js-fade-up js-stagger-1">
+        <div class="service-card__img-wrap">
+          <img src="./img/service/img_lp.jpg" alt="LP制作">
+
+          <span class="service-card__arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">LP制作</h3>
+          <p class="service-card__text">想いを「届くカタチ」にするランディングページ制作。専門家による戦略的なデザインと構成で、成果につながるLPを提供します。</p>
+        </div>
+      </a>
+
+      <a href="#" class="service-card js-fade-up js-stagger-2">
+        <div class="service-card__img-wrap">
+          <img src="./img/service/img_ad.png" alt="広告運用代行">
+          <span class="service-card__arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">広告運用代行</h3>
+          <p class="service-card__text">ターゲットに的確に届けるWeb広告の運用サポート。データに基づいた最適化で、費用対効果の高い集客を実現します。</p>
+        </div>
+      </a>
+
+      <a href="#" class="service-card js-fade-up js-stagger-3">
+        <div class="service-card__img-wrap">
+          <img src="./img/service/img_medical.jpeg" alt="医療系採用支援">
+          <span class="service-card__arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">医療系採用支援</h3>
+          <p class="service-card__text">元看護師の視点を活かした専門職の採用ブランディング。現場を知るからこそできる、響く採用コンテンツを制作します。</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ウェーブ: サービス → 制作実績 -->
+  <div class="section-wave section-wave--service-to-works">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,20 C240,60 480,0 720,40 C960,80 1200,10 1440,30 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+
+  <!-- 制作実績セクション -->
+  <section class="sec-works">
+    <div class="sec-heading js-observe">
+      <p class="sec-heading__en">Works</p>
+      <h2 class="sec-heading__ja">制作実績</h2>
+    </div>
+    <div class="sec-works__inner">
+
+      <a href="#" class="works-card js-scale-in js-stagger-1">
+        <div class="works-card__img-wrap">
+          <img src="./img/works/work.jpeg" alt="株式会社イワデン 様">
+        </div>
+        <div class="works-card__body">
+          <span class="works-card__tag">飲食</span>
+          <span class="works-card__tag">LP</span>
+          <h3 class="works-card__title">株式会社サンプルフーズ 様</h3>
+        </div>
+      </a>
+
+      <a href="#" class="works-card js-scale-in js-stagger-2">
+        <div class="works-card__img-wrap">
+          <img src="./img/works/work.jpeg" alt="レオレオカメレオンファーム 様">
+        </div>
+        <div class="works-card__body">
+          <span class="works-card__tag">美容・サロン</span>
+          <span class="works-card__tag">HP</span>
+          <h3 class="works-card__title">Beauty Salon COCOA 様</h3>
+        </div>
+      </a>
+
+      <a href="#" class="works-card js-scale-in js-stagger-3">
+        <div class="works-card__img-wrap">
+          <img src="./img/works/work.jpeg" alt="株式会社渡邊硝子建材 様">
+        </div>
+        <div class="works-card__body">
+          <span class="works-card__tag">医療・クリニック</span>
+          <span class="works-card__tag">LP</span>
+          <h3 class="works-card__title">あおぞら内科クリニック 様</h3>
+        </div>
+      </a>
+
+      <a href="#" class="works-card js-scale-in js-stagger-4">
+        <div class="works-card__img-wrap">
+          <img src="./img/works/work.jpeg" alt="田川自動車学校 様">
+        </div>
+        <div class="works-card__body">
+          <span class="works-card__tag">不動産</span>
+          <span class="works-card__tag">HP</span>
+          <h3 class="works-card__title">株式会社グリーンホーム 様</h3>
+        </div>
+      </a>
+
+      <a href="#" class="works-card js-scale-in js-stagger-5">
+        <div class="works-card__img-wrap">
+          <img src="./img/works/work.jpeg" alt="飯塚自動車学校 様">
+        </div>
+        <div class="works-card__body">
+          <span class="works-card__tag">教育・スクール</span>
+          <span class="works-card__tag">印刷物</span>
+          <h3 class="works-card__title">プログラミング教室 TechKids 様</h3>
+        </div>
+      </a>
+
+      <a href="#" class="works-card js-scale-in js-stagger-6">
+        <div class="works-card__img-wrap">
+          <img src="./img/works/work.jpeg" alt="株式会社アイプロ 様">
+        </div>
+        <div class="works-card__body">
+          <span class="works-card__tag">建設・建築</span>
+          <span class="works-card__tag">LP</span>
+          <h3 class="works-card__title">有限会社丸山工務店 様</h3>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="sec-works__more">
+      <a href="#" class="btn-more js-observe">
+        <span class="btn-more__text">View All</span>
+        <span class="btn-more__arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <script src="./js/main.js"></script>
+</body>
+
+</html>

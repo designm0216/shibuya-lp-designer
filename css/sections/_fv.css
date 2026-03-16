@@ -1,0 +1,792 @@
+/* ============================================
+   css/sections/_fv.css
+   FV（ファーストビュー）・スライダー・アイコンナビのスタイル
+   ============================================ */
+
+/* ============================================
+   FV全体のコンテナ
+   ============================================ */
+.lcl-fv {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  /* 背景パターンスクロールを透過表示 */
+}
+
+/* ============================================
+   SCROLL円形 - 中央に大きく横長に配置
+   ============================================ */
+.lcl-scroll-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 120rem;
+  height: 68rem;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lcl-scroll-bg__circle {
+  position: absolute;
+  inset: 0;
+  background: url("./img/bg_scroll.svg") center / contain no-repeat;
+  animation: scroll-circle-anim 80s ease-in-out infinite;
+  opacity: 0.12;
+  transform: scaleX(1.35);
+}
+
+.lcl-scroll-bg .ico_svg {
+  width: 5rem;
+  animation: scroll-down-anim 3s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.lcl-scroll-bg .ico_svg .svg-path {
+  stroke-width: 0.08rem;
+}
+
+/* ============================================
+   キャッチコピーエリア（中央配置・画像と重なる）
+   ============================================ */
+.lcl-catch {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateX(-22rem) translateY(-50%);
+  bottom: auto;
+  width: 56rem;
+  min-height: 16rem;
+  text-align: left;
+  pointer-events: none;
+}
+
+.catch-script {
+  font-family: 'Allura', cursive;
+  font-size: clamp(3.6rem, 5vw, 6rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 1.2rem;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  text-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.catch-slides-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 16rem;
+}
+
+.catch-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  filter: blur(0.3rem);
+  transition:
+    opacity 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    filter 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.catch-slide.is-active {
+  opacity: 1;
+  filter: blur(0);
+  pointer-events: auto;
+}
+
+.catch-slide .catch-main {
+  font-size: max(2.5rem, 20px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 座布団：白背景・文字色#333 */
+  display: inline;
+  color: #333;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.15em 0.7em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  border-radius: 0.2em;
+  line-height: 2.2;
+  text-shadow: none;
+}
+
+.catch-slide .catch-main .em {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.catch-slide .catch-sub {
+  font-size: max(1.4rem, 12px);
+  font-weight: 500;
+  line-height: 2.1;
+  color: #fff;
+  margin-top: 1.6rem;
+  letter-spacing: 0.08em;
+  -webkit-font-smoothing: antialiased;
+  text-shadow:
+    0 0 0.4rem rgba(0, 0, 0, 0.9),
+    0 0.1rem 0.6rem rgba(0, 0, 0, 0.8),
+    0 0.2rem 1.6rem rgba(0, 0, 0, 0.6),
+    0 0.4rem 3rem rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   センターモードスライダー
+   ============================================ */
+.lcl-slider-area {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  margin-top: 0;
+  padding-bottom: 0;
+  overflow: visible;
+}
+
+.lcl-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* ============================================
+   スライドカード共通
+   ============================================ */
+.lcl-slider__card {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  /* ふわっと自然な切り替え */
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    width 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    height 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lcl-slider__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   センター（アクティブ）スライド
+   ============================================ */
+.lcl-slider__card--center {
+  width: 96rem;
+  height: 70rem;
+  animation: radius-center 30s ease-in-out infinite;
+  z-index: 3;
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.lcl-slider__card--center::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.32) 0%,
+      rgba(0, 0, 0, 0.05) 40%,
+      rgba(0, 0, 0, 0.0) 55%,
+      rgba(0, 0, 0, 0.08) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.lcl-slider__card--center>img.zoom-active {
+  animation: main-zoom-out-anim 10s ease;
+}
+
+/* ============================================
+   左右サイドスライド（同じ円形）
+   ============================================ */
+.lcl-slider__card--side {
+  width: 24rem;
+  height: 34rem;
+  opacity: 0.3;
+  filter: brightness(0.9) saturate(0.6);
+  z-index: 1;
+  cursor: pointer;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.04);
+}
+
+.lcl-slider__card--side:hover {
+  opacity: 0.6;
+  filter: brightness(0.95) saturate(0.8);
+}
+
+.lcl-slider__card--prev {
+  animation: radius-left 30s ease-in-out infinite;
+  transform: scale(0.95);
+}
+
+.lcl-slider__card--next {
+  animation: radius-right 30s ease-in-out infinite;
+  transform: scale(0.95);
+}
+
+/* ============================================
+   モックアップ画像
+   ============================================ */
+.lcl-slider__mockup {
+  position: absolute;
+  right: calc(50% - 96rem / 2 - 6rem);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32rem;
+  z-index: 20;
+  animation: float-up-down 6s ease-in-out infinite;
+  pointer-events: none;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lcl-slider__mockup img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 1.5rem 3rem rgba(0, 0, 0, 0.12));
+}
+
+/* ============================================
+   アイコンナビゲーション（FV下部）
+   ============================================ */
+.icon-nav {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  max-width: 72rem;
+  display: flex;
+  justify-content: center;
+  width: 92%;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+}
+
+.icon-nav__item {
+  flex: 1;
+  position: relative;
+  text-align: center;
+  padding: 1.4rem 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  color: #35383e;
+}
+
+.icon-nav__item {
+  border: none;
+  position: relative;
+}
+
+/* ホバー時トップバー（::afterに移動） */
+.icon-nav__item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.4rem;
+  background: linear-gradient(90deg, #00b4a8, #00c9a7);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.icon-nav__item:hover::after {
+  transform: scaleY(1);
+}
+
+.icon-nav__item:hover {
+  background: rgba(0, 180, 168, 0.04);
+}
+
+/* 縦区切り線（中央列の右端 = 6列中最後以外の各アイテム右側、ただし実質6列なので5本目まで） */
+.icon-nav__item::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 18%;
+  height: 64%;
+  width: 1px;
+  background: #e0e0e0;
+  z-index: 1;
+}
+
+.icon-nav__item:last-child::before {
+  display: none;
+}
+
+.icon-nav__icon {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 0.6rem;
+}
+
+.icon-nav__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.icon-nav__label {
+  font-size: max(1.15rem, 10px);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2a2d33;
+}
+
+/* ============================================
+   切り替え中のフェード状態
+   ============================================ */
+.lcl-slider.is-transitioning .lcl-slider__card img {
+  opacity: 0;
+}
+
+.lcl-slider.is-transitioning .lcl-slider__card--center img {
+  opacity: 0;
+}
+
+/* ============================================
+   レスポンシブ（タブレット）
+   ============================================ */
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+
+  /* キャッチコピーの位置を調整 */
+  .lcl-catch {
+    left: 5%;
+    bottom: auto;
+    top: auto;
+    width: 90%;
+    max-width: none;
+    transform: none;
+    z-index: 15;
+    position: absolute;
+    bottom: 19.5rem;
+  }
+
+  .catch-slide .catch-main {
+    font-size: max(2rem, 16px);
+  }
+
+  .catch-slide .catch-sub {
+    font-size: max(1.1rem, 11px);
+    margin-top: 1rem;
+  }
+
+  /* スライダーのサイズを調整 */
+  .lcl-slider__card--center {
+    width: 60rem;
+    height: 45rem;
+  }
+
+  .lcl-slider__card--side {
+    width: 22rem;
+    height: 16rem;
+  }
+
+  .lcl-slider {
+    gap: 2rem;
+  }
+}
+
+/* ============================================
+   レスポンシブ（SP）
+   ============================================ */
+@media screen and (max-width: 767px) {
+  .lcl-fv {
+    position: relative;
+    min-height: auto;
+    height: auto;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+
+  .lcl-slider-area {
+    order: 1;
+  }
+
+  .lcl-catch {
+    order: 2;
+  }
+
+  .icon-nav {
+    order: 3;
+  }
+
+  .scroll_down {
+    order: 4;
+  }
+
+
+  .icon-nav {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    flex-wrap: wrap;
+    width: 94%;
+    margin: 2rem auto 2rem;
+    border-radius: 0.8rem;
+  }
+
+  .icon-nav__item {
+    flex: 0 0 50%;
+    padding: 2rem 0.5rem 1.8rem;
+  }
+
+  .icon-nav__item:nth-child(n+3) {
+    border-top: 1px solid #eee;
+  }
+
+  .icon-nav__item:nth-child(odd) {
+    border-left: none;
+  }
+
+  .icon-nav__icon {
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .icon-nav__label {
+    font-size: max(1.2rem, 12px);
+  }
+
+  .lcl-scroll-bg {
+    display: none;
+    /* SP時はSCROLL円形非表示 */
+  }
+
+  .lcl-catch {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 90%;
+    max-width: none;
+    z-index: 15;
+    margin: 0 auto 0;
+    padding-top: 62vw;
+    min-height: auto;
+    padding-bottom: 0;
+  }
+
+  .catch-slides-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    transition: height 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .catch-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    filter: blur(0.3rem);
+  }
+
+  .catch-slide.is-active {
+    filter: blur(0);
+  }
+
+  .catch-slide {
+    width: 100%;
+  }
+
+  .catch-script {
+    font-size: clamp(2.8rem, 8vw, 4rem);
+    color: rgba(0, 0, 0, 0.08);
+    margin-bottom: 0.8rem;
+    text-shadow: none;
+  }
+
+  .catch-slide .catch-main {
+    font-size: max(2.2rem, 24px);
+    display: block;
+    background: none;
+    padding: 0;
+    line-height: 1.6;
+  }
+
+  .catch-slide .catch-main br {
+    display: none;
+  }
+
+  .catch-line {
+    display: table;
+    background: rgba(255, 255, 255, 0.92);
+    padding: 0.2em 0.6em;
+    border-radius: 0.2em;
+    margin-bottom: 0.3em;
+  }
+
+
+
+  .catch-slide .catch-sub {
+    display: block;
+    font-size: max(1.4rem, 16px);
+    margin-top: 1.6rem;
+    line-height: 1.8;
+    color: #222;
+    font-weight: 600;
+    text-shadow:
+      0 0 0.6rem rgba(255, 255, 255, 0.9),
+      0 0 1.2rem rgba(255, 255, 255, 0.7),
+      0 0 2.4rem rgba(255, 255, 255, 0.5);
+  }
+
+  .catch-slide .catch-sub::after {
+    display: none;
+  }
+
+
+
+  /* SP楽円形スライダー（absoluteで右上に配置） */
+  .lcl-slider-area {
+    position: absolute;
+    top: 4rem;
+    right: -15vw;
+    left: auto;
+    width: 110vw;
+    height: 110vw;
+    margin: 0;
+    padding: 0;
+    z-index: 3;
+  }
+
+  .lcl-slider {
+    gap: 0;
+    justify-content: flex-end;
+  }
+
+  .lcl-slider__card--center {
+    width: 110vw;
+    height: 110vw;
+    animation: radius-center 30s ease-in-out infinite;
+    border-radius: 50%;
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.10);
+    margin: 0;
+  }
+
+  .lcl-slider__card--center img {
+    object-position: center top;
+  }
+
+
+
+
+
+
+  .lcl-slider__card--side {
+    display: none;
+  }
+
+  .lcl-slider__mockup {
+    display: none;
+  }
+
+  .icon-nav {
+    order: 4;
+  }
+
+
+}
+
+
+/* ============================================
+   PC/SP改行切り替え
+   ============================================ */
+.sp-only {
+  display: none;
+}
+
+.pc-only {
+  display: inline;
+}
+
+.catch-line {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .sp-only {
+    display: block;
+  }
+
+  .pc-only {
+    display: none;
+  }
+
+  .catch-line {
+    display: table;
+  }
+}
+
+
+/* ============================================
+   スクロールダウン
+   ============================================ */
+.scroll_down {
+  position: absolute;
+  bottom: 8rem;
+  right: 3rem;
+  width: auto;
+  height: auto;
+  z-index: 20;
+}
+
+.scroll_down a {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  padding: 10px 10px 110px;
+  color: #000;
+  font-size: 14px;
+  font-family: 'Josefin Sans', sans-serif;
+  line-height: 1;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  writing-mode: vertical-lr;
+  transition: .2s;
+  overflow: visible;
+}
+
+.scroll_down a:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 100px;
+  background: #ddd;
+}
+
+.scroll_down a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 100px;
+  background: #000;
+}
+
+.scroll_down a:hover {
+  opacity: .5;
+}
+
+#type01 a:after {
+  animation: sdl01 1.5s cubic-bezier(1, 0, 0, 1) infinite;
+}
+
+@keyframes sdl01 {
+  0% {
+    transform: scale(1, 0);
+    transform-origin: 0 0;
+  }
+
+  50% {
+    transform: scale(1, 1);
+    transform-origin: 0 0;
+  }
+
+  50.1% {
+    transform: scale(1, 1);
+    transform-origin: 0 100%;
+  }
+
+  100% {
+    transform: scale(1, 0);
+    transform-origin: 0 100%;
+  }
+}
+
+/* PC時はSP用スクロール非表示 */
+.scroll_down--sp {
+  display: none;
+}
+
+/* SP時は非表示 */
+@media screen and (max-width: 767px) {
+  .scroll_down:not(.scroll_down--sp) {
+    display: none;
+  }
+
+  .scroll_down--sp {
+    display: block !important;
+    position: absolute;
+    top: 20vw;
+    bottom: auto;
+    right: auto;
+    left: 1.5rem;
+    z-index: 25;
+  }
+
+  .scroll_down--sp a {
+    padding: 10px 10px 80px;
+    color: #fff;
+    font-size: 11px;
+    text-shadow:
+      0 0 0.4rem rgba(0, 0, 0, 0.6),
+      0 0.1rem 0.6rem rgba(0, 0, 0, 0.4);
+  }
+
+  .scroll_down--sp a:before {
+    height: 60px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .scroll_down--sp a:after {
+    height: 60px;
+    width: 1px;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  }
+
+  #type01sp a:after {
+    animation: sdl01 2.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+}

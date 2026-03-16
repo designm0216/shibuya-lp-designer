@@ -1,0 +1,12 @@
+/* ============================================
+   css/style.css
+   スタイルシートのエントリーポイント（@import のみ）
+   ============================================ */
+@import "./base/_reset.css";
+@import "./base/_variables.css";
+@import "./base/_animation.css";
+@import "./layout/_header.css";
+@import "./layout/_wave.css";
+@import "./sections/_fv.css";
+@import "./sections/_service.css";
+@import "./sections/_works.css";

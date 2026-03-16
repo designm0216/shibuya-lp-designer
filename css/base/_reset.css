@@ -1,0 +1,11 @@
+/* ============================================
+   css/base/_reset.css
+   リセットスタイル・ボディ基本設定
+   ============================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  overflow-x: hidden;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--color-text);
+  background: #e7eef3; /* clear-gel.jp参照: rgb(231, 238, 243) */
+}

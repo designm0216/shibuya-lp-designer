@@ -1,0 +1,639 @@
+/* ============================================
+   css/sections/_service.css
+   サービスセクション・サービスカードのスタイル
+   ============================================ */
+
+   /* ============================================
+   セクション見出し
+   ============================================ */
+.sec-heading {
+  position: relative;
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.sec-heading__en {
+  position: absolute;
+  left: 6rem;
+  top: 50%;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(6rem, 12vw, 14rem);
+  font-weight: 500;
+  color: rgba(248, 248, 248, 1);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  /* アニメーション初期状態 */
+  opacity: 0;
+  transform: translateY(-50%) translateX(-3rem);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sec-heading.is-visible .sec-heading__en {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+
+.sec-heading__ja {
+  position: relative;
+  z-index: 1;
+  margin-left: 6rem;
+  font-size: max(1.3rem, 12px);
+  font-weight: 700;
+  color: #f06292;
+  letter-spacing: 0.2em;
+  line-height: 1;
+}
+
+
+/* ============================================
+   サービスセクション
+   ============================================ */
+.sec-service {
+  padding: 10rem 0 12rem;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+}
+
+.sec-service__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+
+/* ============================================
+   サービスカード
+   ============================================ */
+.service-card {
+  display: block;
+  text-decoration: none;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.service-card__img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 1.2rem;
+  background: #ddd;
+}
+
+.service-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover .service-card__img-wrap img {
+  transform: scale(1.05);
+}
+
+/* 矢印アイコン（右下） */
+.service-card__arrow {
+  position: absolute;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.service-card__arrow svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.service-card:hover .service-card__arrow {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* テキストエリア */
+.service-card__body {
+  padding: 1.8rem 0.4rem 0;
+}
+
+.service-card__title {
+  font-size: max(1.8rem, 14px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.8rem;
+  color: #1a1a1a;
+}
+
+.service-card__text {
+  font-size: max(1.3rem, 11px);
+  font-weight: 400;
+  line-height: 1.9;
+  color: #555;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================
+   レスポンシブ（タブレット）
+   ============================================ */
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .sec-service__inner {
+    gap: 2.5rem;
+    padding: 0 3rem;
+  }
+
+  .service-card__title {
+    font-size: max(1.5rem, 13px);
+  }
+
+  .service-card__text {
+    font-size: max(1.1rem, 11px);
+  }
+}
+
+/* ============================================
+   レスポンシブ（SP）
+   ============================================ */
+@media screen and (max-width: 767px) {
+  .sec-service {
+    padding: 6rem 0 8rem;
+  }
+
+  .sec-service__inner {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    padding: 0 2rem;
+  }
+
+  .service-card__img-wrap {
+    border-radius: 0.8rem;
+  }
+
+  .service-card__title {
+    font-size: max(1.6rem, 14px);
+  }
+
+  .service-card__text {
+    font-size: max(1.3rem, 12px);
+  }
+}
+.sec-service {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sec-service__sticky {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 見出し */
+.sec-heading--service {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  z-index: 10;
+}
+
+/* ============================================
+   カウンター（01 / 03）
+   ============================================ */
+.service-counter {
+  position: absolute;
+  top: 4.5rem;
+  right: 6rem;
+  z-index: 10;
+  font-family: 'Raleway', sans-serif;
+  font-size: max(1.4rem, 13px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #333;
+  display: flex;
+  align-items: baseline;
+  gap: 0.3em;
+}
+
+.service-counter__current {
+  font-size: max(2.8rem, 22px);
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.service-counter__sep {
+  color: #ccc;
+}
+
+.service-counter__total {
+  color: #999;
+}
+
+/* ============================================
+   プログレスバー
+   ============================================ */
+.service-progress {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 6rem;
+  right: 6rem;
+  height: 2px;
+  background: #e8e8e8;
+  z-index: 10;
+  border-radius: 1px;
+}
+
+.service-progress__fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-primary), #ffb347);
+  border-radius: 1px;
+  will-change: transform;
+  transform: scaleX(0);
+  transform-origin: left center;
+  backface-visibility: hidden;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================
+   横スクロールトラック
+   ============================================ */
+.sec-service__track {
+  display: flex;
+  width: max-content;
+  height: 100vh;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================
+   サービスパネル（1画面1サービス）
+   ============================================ */
+.service-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  width: 100vw;
+  height: 100vh;
+  padding: 8rem 8rem 6rem;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+/* 画像 */
+.service-panel__img {
+  position: relative;
+  width: 48%;
+  max-width: 52rem;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.08);
+}
+
+.service-panel__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-panel:hover .service-panel__img img {
+  transform: scale(1.04);
+}
+
+/* テキスト */
+.service-panel__body {
+  flex: 1;
+  max-width: 42rem;
+}
+
+.service-panel__num {
+  font-family: 'Raleway', sans-serif;
+  font-size: max(6rem, 40px);
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.04);
+  line-height: 1;
+  display: block;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.04em;
+}
+
+.service-panel__title {
+  font-size: max(2.6rem, 20px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+}
+
+.service-panel__text {
+  font-size: max(1.4rem, 13px);
+  font-weight: 400;
+  line-height: 2.1;
+  color: #555;
+  letter-spacing: 0.04em;
+  margin-bottom: 3rem;
+}
+
+.service-panel__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: max(1.3rem, 12px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-primary);
+  transition: gap 0.3s ease;
+}
+
+.service-panel__link svg {
+  width: 1.8rem;
+  height: 1.8rem;
+  transition: transform 0.3s ease;
+}
+
+.service-panel:hover .service-panel__link {
+  gap: 1.2rem;
+}
+
+.service-panel:hover .service-panel__link svg {
+  transform: translateX(0.3rem);
+}
+
+/* ============================================
+   パネル登場アニメーション
+   ============================================ */
+.service-panel__img,
+.service-panel__body {
+  opacity: 0;
+  transform: translateY(3rem);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-panel__body {
+  transition-delay: 0.15s;
+}
+
+.service-panel.is-active .service-panel__img,
+.service-panel.is-active .service-panel__body {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   タブレット
+   ============================================ */
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .service-panel {
+    gap: 4rem;
+    padding: 8rem 5rem 6rem;
+  }
+
+  .service-panel__img {
+    width: 44%;
+  }
+
+  .service-panel__title {
+    font-size: max(2.2rem, 18px);
+  }
+
+  .service-counter {
+    right: 4rem;
+  }
+
+  .service-progress {
+    left: 4rem;
+    right: 4rem;
+  }
+}
+
+/* ============================================
+   SP（水平スクロール解除 → 縦積み）
+   ============================================ */
+@media screen and (max-width: 767px) {
+  .sec-service {
+    height: auto;
+    padding: 6rem 0 8rem;
+  }
+
+  .sec-service__sticky {
+    position: relative;
+    height: auto;
+    overflow: visible;
+  }
+
+  .sec-heading--service {
+    position: relative;
+    top: auto;
+    margin-bottom: 3rem;
+  }
+
+  .sec-service__track {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: 5rem;
+    padding: 0 2rem;
+  }
+
+  .service-panel {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  .service-panel__img {
+    width: 100%;
+    max-width: none;
+    border-radius: 0.8rem;
+  }
+
+  .service-panel__body {
+    max-width: none;
+  }
+
+  .service-panel__num {
+    font-size: max(4rem, 30px);
+    margin-bottom: 0.6rem;
+  }
+
+  .service-panel__title {
+    font-size: max(2rem, 18px);
+    margin-bottom: 1.2rem;
+  }
+
+  .service-panel__text {
+    font-size: max(1.3rem, 13px);
+    margin-bottom: 2rem;
+  }
+
+  .service-counter,
+  .service-progress {
+    display: none;
+  }
+}
+
+.sec-service__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+
+/* ============================================
+   サービスカード
+   ============================================ */
+.service-card {
+  display: block;
+  text-decoration: none;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.service-card__img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 1.2rem;
+  background: #ddd;
+}
+
+.service-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover .service-card__img-wrap img {
+  transform: scale(1.05);
+}
+
+/* 矢印アイコン（右下） */
+.service-card__arrow {
+  position: absolute;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.service-card__arrow svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.service-card:hover .service-card__arrow {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* テキストエリア */
+.service-card__body {
+  padding: 1.8rem 0.4rem 0;
+}
+
+.service-card__title {
+  font-size: max(1.8rem, 14px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.8rem;
+  color: #1a1a1a;
+}
+
+.service-card__text {
+  font-size: max(1.3rem, 11px);
+  font-weight: 400;
+  line-height: 1.9;
+  color: #555;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================
+   レスポンシブ（タブレット）
+   ============================================ */
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .sec-service__inner {
+    gap: 2.5rem;
+    padding: 0 3rem;
+  }
+
+  .service-card__title {
+    font-size: max(1.5rem, 13px);
+  }
+
+  .service-card__text {
+    font-size: max(1.1rem, 11px);
+  }
+}
+
+/* ============================================
+   レスポンシブ（SP）
+   ============================================ */
+@media screen and (max-width: 767px) {
+  .sec-service {
+    padding: 6rem 0 8rem;
+  }
+
+  .sec-service__inner {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    padding: 0 2rem;
+  }
+
+  .service-card__img-wrap {
+    border-radius: 0.8rem;
+  }
+
+  .service-card__title {
+    font-size: max(1.6rem, 14px);
+  }
+
+  .service-card__text {
+    font-size: max(1.3rem, 12px);
+  }
+}

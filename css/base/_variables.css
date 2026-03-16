@@ -1,0 +1,13 @@
+/* ============================================
+   css/base/_variables.css
+   CSS カスタムプロパティ（変数）の定義
+   ============================================ */
+:root {
+  --min-width: 1300;
+  --max-width: 1600;
+  --fz: clamp(10px, calc(100vw / var(--min-width) * 10), calc(var(--max-width) / 1300 * 10px));
+  font-size: var(--fz);
+  --color-primary: #FF8C42;
+  --color-text: #333;
+  --color-accent-glow: rgba(255, 140, 66, 0.25);
+}

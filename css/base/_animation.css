@@ -1,0 +1,256 @@
+/* ============================================
+   css/base/_animation.css
+   @keyframes アニメーション定義・カーテン背景パターン
+   ============================================ */
+
+/* ============================================
+   キーフレームアニメーション
+   ============================================ */
+@keyframes scroll-circle-anim {
+  0%   { rotate: 0deg; }
+  100% { rotate: -360deg; }
+}
+
+@keyframes scroll-down-anim {
+  0%, 100% { translate: 0px; }
+  50%      { translate: 0px 15%; }
+}
+
+/* 中央スライドの角丸変形 */
+@keyframes radius-center {
+  0%, 100% { border-radius: 66% 34% 24% 76% / 43% 42% 58% 57%; }
+  25%      { border-radius: 34% 66% 68% 32% / 31% 68% 32% 69%; }
+  50%      { border-radius: 71% 29% 62% 38% / 63% 27% 73% 37%; }
+  75%      { border-radius: 36% 64% 32% 68% / 28% 74% 26% 72%; }
+}
+
+/* 左サイドの角丸変形（位相ずらし） */
+@keyframes radius-left {
+  0%, 100% { border-radius: 36% 64% 32% 68% / 28% 74% 26% 72%; }
+  25%      { border-radius: 66% 34% 24% 76% / 43% 42% 58% 57%; }
+  50%      { border-radius: 34% 66% 68% 32% / 31% 68% 32% 69%; }
+  75%      { border-radius: 71% 29% 62% 38% / 63% 27% 73% 37%; }
+}
+
+/* 右サイドの角丸変形（位相ずらし） */
+@keyframes radius-right {
+  0%, 100% { border-radius: 71% 29% 62% 38% / 63% 27% 73% 37%; }
+  25%      { border-radius: 36% 64% 32% 68% / 28% 74% 26% 72%; }
+  50%      { border-radius: 66% 34% 24% 76% / 43% 42% 58% 57%; }
+  75%      { border-radius: 34% 66% 68% 32% / 31% 68% 32% 69%; }
+}
+
+@keyframes main-zoom-out-anim {
+  0%   { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float-up-down {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-0.8rem); }
+}
+
+
+/* ============================================
+   ローディング（ロゴフェード）
+   ============================================ */
+.loading {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.8s;
+}
+
+.loading.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading__logo {
+  width: 18rem;
+  opacity: 0;
+  transform: translateY(1rem);
+  animation: loading-logo-in 1s 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.loading__logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes loading-logo-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html.is-loading {
+  overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .loading__logo {
+    width: 14rem;
+  }
+}
+
+/* ============================================
+   スクロールアニメーション共通
+   ============================================ */
+
+/* --- フェードアップ（汎用） --- */
+.js-fade-up {
+  opacity: 0;
+  transform: translateY(4rem);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.js-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- フェードイン左から --- */
+.js-fade-left {
+  opacity: 0;
+  transform: translateX(-4rem);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.js-fade-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- フェードイン右から --- */
+.js-fade-right {
+  opacity: 0;
+  transform: translateX(4rem);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.js-fade-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- スケールイン --- */
+.js-scale-in {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.js-scale-in.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* --- スタガー用ディレイ --- */
+.js-stagger-1 { transition-delay: 0.1s; }
+.js-stagger-2 { transition-delay: 0.25s; }
+.js-stagger-3 { transition-delay: 0.4s; }
+.js-stagger-4 { transition-delay: 0.55s; }
+.js-stagger-5 { transition-delay: 0.7s; }
+.js-stagger-6 { transition-delay: 0.85s; }
+
+/* --- セクション見出し下線アニメーション --- */
+.sec-heading__ja {
+  position: relative;
+  z-index: 1;
+  margin-left: 6rem;
+  font-size: max(1.3rem, 12px);
+  font-weight: 700;
+  color: #f06292;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  display: inline-block;
+}
+
+.sec-heading__ja::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.6rem;
+  width: 0;
+  height: 2px;
+  background: #f06292;
+  transition: width 0.8s 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sec-heading.is-visible .sec-heading__ja::after {
+  width: 100%;
+}
+
+
+
+/* --- アイコンナビ ポップイン --- */
+.icon-nav__item {
+  opacity: 0;
+  transform: translateY(2rem) scale(0.9);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.icon-nav.is-visible .icon-nav__item:nth-child(1) { transition-delay: 0.05s; }
+.icon-nav.is-visible .icon-nav__item:nth-child(2) { transition-delay: 0.12s; }
+.icon-nav.is-visible .icon-nav__item:nth-child(3) { transition-delay: 0.19s; }
+.icon-nav.is-visible .icon-nav__item:nth-child(4) { transition-delay: 0.26s; }
+.icon-nav.is-visible .icon-nav__item:nth-child(5) { transition-delay: 0.33s; }
+.icon-nav.is-visible .icon-nav__item:nth-child(6) { transition-delay: 0.4s; }
+
+.icon-nav.is-visible .icon-nav__item {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* --- View All ボタン --- */
+.btn-more {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              background 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.btn-more.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- SP時はディレイをリセット --- */
+@media screen and (max-width: 767px) {
+  .js-stagger-1,
+  .js-stagger-2,
+  .js-stagger-3,
+  .js-stagger-4,
+  .js-stagger-5,
+  .js-stagger-6 {
+    transition-delay: 0s !important;
+  }
+
+  .sec-heading__en {
+    opacity: 1;
+    transform: none;
+  }
+
+  .sec-heading__ja::after {
+    display: none;
+  }
+}
+
+

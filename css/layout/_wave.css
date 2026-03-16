@@ -1,0 +1,47 @@
+/* ============================================
+   セクション間ウェーブ
+   ============================================ */
+.section-wave {
+  position: relative;
+  width: 100%;
+  height: 6rem;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2;
+}
+
+.section-wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* FV → サービス間：白で塗る */
+.section-wave--fv-to-service {
+  margin-top: -6rem;        /* FVの下端に重ねる */
+  background: transparent;
+}
+.section-wave--fv-to-service svg {
+  fill: #fff;
+}
+
+/* サービス → 実績間：#f8f8f8で塗る */
+.section-wave--service-to-works {
+  background: #fff;         /* 上セクションの背景色 */
+}
+.section-wave--service-to-works svg {
+  fill: #e7eef3;
+}
+
+/* ============================================
+   レスポンシブ
+   ============================================ */
+@media screen and (max-width: 767px) {
+  .section-wave {
+    height: 4rem;
+  }
+
+  .section-wave--fv-to-service {
+    margin-top: -4rem;
+  }
+}
